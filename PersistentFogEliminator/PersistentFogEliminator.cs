@@ -13,7 +13,7 @@ namespace PersistentFogAdjuster
 
         public string Description
         {
-            get { return "Makes Set Fog Value Persistent"; }
+            get { return "Makes specified fog value persistent"; }
         }
         // Sets up a settings user interface
         public void OnSettingsUI(UIHelperBase helper)
@@ -24,7 +24,7 @@ namespace PersistentFogAdjuster
             //maybe add restricted/ unrestricted mode and on off button
             helper.AddTextfield("Fog Value (Functional Range: -0.49 to 2)", config.FogValue.ToString(), sel =>
             {
-                if (sel != "-" && float.TryParse(sel, out _) == false)
+               /* if (sel != "-" && float.TryParse(sel, out _) == false)
                 {
                     ExceptionPanel panel = UIView.library.ShowModal<ExceptionPanel>("ExceptionPanel");
                     panel.SetMessage("Bad Value", "Only numerical values accepted", false);
@@ -39,6 +39,10 @@ namespace PersistentFogAdjuster
                     config.FogValue = float.Parse(sel);
                     Configuration<PersistentFogAdjusterConfiguration>.Save();
                 }
+                */
+                config.FogValue = float.Parse(sel);
+                Configuration<PersistentFogAdjusterConfiguration>.Save();
+
             });
         }
 

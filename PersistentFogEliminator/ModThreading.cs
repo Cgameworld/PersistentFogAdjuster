@@ -14,7 +14,6 @@ namespace PersistentFogAdjuster
         public override void OnUpdate(float realTimeDelta, float simulationTimeDelta)
         {
             WeatherManager.instance.m_currentFog = config.FogValue;
-            Debug.Log("Fog Value:" + WeatherManager.instance.m_currentFog + "saved:" + config.FogValue);
 
         }
 
